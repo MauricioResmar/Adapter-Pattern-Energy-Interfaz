@@ -1,0 +1,53 @@
+@startuml
+class Adapter.Lightbulb {
+~ boolean poweredOn
+~ int voltage
++ void turnOn(int)
++ void turnOff()
++ boolean isPoweredOn()
+}
+
+
+class Adapter.Main {
++ {static} void main(String[])
++ {static} void enciende(Enchufable)
++ {static} void apaga(Enchufable)
++ {static} boolean estaEncendido(Enchufable)
+}
+
+class Adapter.PowerAdapter {
++ Lightbulb lightbulb
++ void enciende()
++ void apaga()
++ boolean estaEncendido()
+}
+
+
+interface Adapter.Enchufable {
+~ void enciende()
+~ void apaga()
+~ boolean estaEncendido()
+}
+
+class Adapter.Horno {
+~ boolean encendido
++ void enciende()
++ void apaga()
++ boolean estaEncendido()
+}
+
+
+class Adapter.Lampara {
+~ boolean encendido
++ void enciende()
++ void apaga()
++ boolean estaEncendido()
+}
+
+
+
+
+Adapter.Enchufable <|.. Adapter.PowerAdapter
+Adapter.Enchufable <|.. Adapter.Horno
+Adapter.Enchufable <|.. Adapter.Lampara
+@enduml
